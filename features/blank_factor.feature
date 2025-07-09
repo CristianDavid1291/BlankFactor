@@ -16,3 +16,13 @@ Scenario Outline: Validate AI & Machine learning content on Retirement and Wealt
 Examples:
     | section_name                 | card_title                   | content_snippet                                                  | 
     | Retirement and Wealth        | AI &\nMachine learning       | Automate your operations and get to market quickly and securely. |
+
+Scenario Outline: Validate button redirection and title on Retirement and Wealth sections
+    When I navigate to the "<section_name>" section
+    Then I scroll down and click on get started button
+    And The button should redirect to "<url>" and display the title "Contact | Blankfactor"
+    And close the browser
+
+Examples:
+   | section_name             | url                                |            
+   | Retirement and Wealth    | https://blankfactor.com/contact/   |  
