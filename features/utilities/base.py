@@ -11,3 +11,13 @@ def setup_driver():
     driver.maximize_window()
     driver.implicitly_wait(data["implicit_wait"]) 
     return driver
+
+def get_page_title(driver):
+    return driver.title
+
+def get_current_url(driver):
+    return driver.current_url
+
+def close_driver(driver):
+    driver.quit()
+    print("Browser closed successfully.")
