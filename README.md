@@ -25,6 +25,9 @@ BlankFactor/
 │   └── utilities/
 │       ├── base.py                   # Base utility functions for driver management
 │       └── __pycache__/
+└── manual_testing/
+    ├── WebApplication_TestPlan.docx  # Manual test plan document
+    └── WebApplication_TestPlan.xlsx  # Manual test plan spreadsheet
 ```
 
 ## Features
@@ -35,6 +38,20 @@ BlankFactor/
 - **Allure Reporting**: Comprehensive test reporting with Allure framework
 - **Cross-browser Support**: Configurable for different browsers
 - **Data-driven Testing**: Supports parameterized test scenarios
+- **Manual Testing Documentation**: Includes comprehensive manual test plans and documentation
+
+## Testing Strategy
+
+This framework supports both automated and manual testing approaches:
+
+### Automated Testing
+- **BDD Framework**: Behavior-driven development using Gherkin syntax
+- **Continuous Integration**: Ready for CI/CD pipeline integration
+- **Cross-browser Testing**: Configurable for different browsers
+
+### Manual Testing
+- **Test Plans**: Comprehensive manual test plans in multiple formats
+- **Documentation**: Detailed test cases and scenarios
 
 ## Test Scenarios
 
@@ -179,15 +196,6 @@ The framework currently uses Chrome browser by default. To modify browser settin
 - **Graphs**: Visual representation of test results
 - **Timeline**: Test execution timeline
 
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests for new functionality
-5. Run the test suite
-6. Submit a pull request
-
 ## Best Practices
 
 - Follow Page Object Model pattern
@@ -196,15 +204,3 @@ The framework currently uses Chrome browser by default. To modify browser settin
 - Add appropriate waits for dynamic content
 - Keep test data separate from test logic
 - Write reusable utility functions
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Contact
-
-For questions or support, please contact the development team.
-
----
-
-**Note**: This framework is designed for testing the BlankFactor website and follows industry best practices for test automation.
