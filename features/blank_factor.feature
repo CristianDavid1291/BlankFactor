@@ -6,3 +6,13 @@ Feature: Powering innovation in retirement services
     
 Background:
     Given I am on Blank Factor home page
+    
+Scenario Outline: Validate AI & Machine learning content on Retirement and Wealth section
+    When I navigate to the "<section_name>" section
+    Then I should see the "<card_title>" displayed
+    And The content with "<card_title>" should include "<content_snippet>"
+    And close the browser
+
+Examples:
+    | section_name                 | card_title                   | content_snippet                                                  | 
+    | Retirement and Wealth        | AI &\nMachine learning       | Automate your operations and get to market quickly and securely. |
