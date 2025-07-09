@@ -1,0 +1,4 @@
+behave
+selenium
+selenium-page-factory
+allure-behave
