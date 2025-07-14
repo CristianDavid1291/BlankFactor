@@ -8,10 +8,16 @@ from page_objects.industries_page import IndustriesPage
 from page_objects.retirement_wealth_page import RetirementWealthPage
 from page_objects.contact_page import ContactPage
 import utilities.base as base
+from utilities.custom_logger import LogGen
+
+
+logger = LogGen.log_gentest()
 
 @given(u'I am on Blank Factor home page')
 def launch_browser(context):
+    context.logger = logger
     context.driver = base.setup_driver()
+    context.logger.info("***********Browser launched successfully.***********")
     context.home_page = HomePage(context.driver)
     context.home_page.accept_cookies()
     context.home_page.click_on_header_navigation_link("Industries")
@@ -37,7 +43,8 @@ def validate_section_content(context, card_title, content_snippet):
 
 @then(u'close the browser')
 def close_browser(context):
-    base.close_driver(context.driver)
+    #base.close_driver(context.driver)
+    pass
 
  
 @then(u'I scroll down and click on get started button')
