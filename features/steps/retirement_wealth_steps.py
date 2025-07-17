@@ -2,7 +2,7 @@ from behave import *
 from selenium import webdriver
 import sys
 import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+#sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from page_objects.home_page import HomePage
 from page_objects.industries_page import IndustriesPage
 from page_objects.retirement_wealth_page import RetirementWealthPage
@@ -56,8 +56,8 @@ def validate_let_started(context):
 def step_impl(context, url, title):
     contact_page = ContactPage(context.driver)
     assert contact_page.validate_load_page(), "Page did not load successfully."
-    current_url = base.get_current_url(contact_page.get_driver())
-    current_title = base.get_page_title(contact_page.get_driver())
+    current_url = context.driver.current_url
+    current_title = context.driver.title
     assert current_url == url, f"Expected URL '{url}' but got '{current_url}'"
     assert current_title == title, f"Expected title '{title}' but got '{current_title}'"
     print(f"Successfully navigated with title '{current_title}'")

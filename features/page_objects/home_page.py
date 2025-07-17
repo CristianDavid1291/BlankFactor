@@ -1,13 +1,15 @@
 from seleniumpagefactory import PageFactory
-from selenium.webdriver.common.by import By
+from selenium.common.exceptions import NoSuchElementException
+from locators.home_page_locators import HomePageLocators
 
 class HomePage(PageFactory):
 
     def __init__(self, driver):
         self.driver = driver
     
+    # Using centralized locators from HomePageLocators
     locators = {
-        "accept_cookies_button": (By.XPATH,"(//button[contains(text(), 'Accept All')])[1]"),
+        "accept_cookies_button": HomePageLocators.ACCEPT_COOKIES_BUTTON,
     }
 
     def accept_cookies(self):
@@ -17,12 +19,13 @@ class HomePage(PageFactory):
         """
         try:
             self.accept_cookies_button.click()
-        except Exception as e:
-            print(f"No cookies button found or already accepted. {e}")
+        except NoSuchElementException:
+            print("No cookies button found or already accepted.")
     
     def click_on_header_navigation_link(self, link_text):
         """
         Click on a header navigation link by its text.
         param link_text: The text of the link to click.
         """
-        self.driver.find_element(By.LINK_TEXT, link_text).click()
+        # Using dynamic locator from centralized HomePageLocators
+        self.driver.find_element(*HomePageLocators.navigation_link_by_text(link_text)).click()
